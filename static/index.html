@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="static/css/styles.css">
+  </head>
+  <body>
+    <script type="text/x-handlebars" data-template-name="chat">
+      <section id="chatapp">
+        <header>
+          <h1>chat</h1>
+          <input type="text" id="new-message" placeholder="Enter your name...">
+          <ul id="chatlog">
+            {{#each}}
+              <li {{bind-attr class="sentBySelf:sentBySelf"}}>{{message}}</li>
+            {{/each}}
+          </ul>
+          {{input type="text" id="new-message"
+            placeholder="Type a message and press enter..." value=newMessage
+            action="createMessage"}}
+        </header>
+      </section>
+    </script>
+    <script src="static/libs/jquery-1.10.2.js"></script>
+    <script src="static/libs/handlebars-1.1.2.js"></script>
+    <script src="static/libs/ember-1.6.0.js"></script>
+    <script src="static/libs/ember-data.js"></script>
+    <script src="static/js/application.js"></script>
+    <script src="static/js/router.js"></script>
+    <script src="static/js/models/message.js"></script>
+  </body>
+</html>
