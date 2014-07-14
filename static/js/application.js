@@ -1,3 +1,7 @@
-window.Chat = Ember.Application.create();
-
-Chat.ApplicationAdapter = DS.FixtureAdapter.extend();
+window.Chat = Ember.Application.create({
+  Socket: EmberSockets.extend({
+    host: 'localhost',
+    port: 3502,
+    controllers: ['chat']
+  })
+});

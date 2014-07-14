@@ -9,9 +9,10 @@
       <section id="chatapp">
         <header>
           <h1>chat</h1>
-          <input type="text" id="new-message" placeholder="Enter your name...">
+          {{input type="text" id="username" placeholder="Enter your name..."
+            value=username}}
           <ul id="chatlog">
-            {{#each}}
+            {{#each itemController="message"}}
               <li {{bind-attr class="sentBySelf:sentBySelf"}}>{{message}}</li>
             {{/each}}
           </ul>
@@ -21,12 +22,16 @@
         </header>
       </section>
     </script>
+    <script src="https://cdn.socket.io/socket.io-1.0.6.js"></script>
     <script src="static/libs/jquery-1.10.2.js"></script>
     <script src="static/libs/handlebars-1.1.2.js"></script>
     <script src="static/libs/ember-1.6.0.js"></script>
     <script src="static/libs/ember-data.js"></script>
+    <script src="static/libs/ember-sockets.js"></script>
     <script src="static/js/application.js"></script>
     <script src="static/js/router.js"></script>
     <script src="static/js/models/message.js"></script>
+    <script src="static/js/controllers/chat_controller.js"></script>
+    <script src="static/js/controllers/message_controller.js"></script>
   </body>
 </html>

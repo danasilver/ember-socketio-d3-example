@@ -1,24 +1,30 @@
 # -*- coding: utf-8 -*-
 
+from gevent import monkey
+monkey.patch_all()
+
 import os
 from sqlite3 import dbapi2 as sqlite3
 from flask import Flask, g
 from flask.ext.socketio import SocketIO, emit
 
 app = Flask(__name__)
+
+# app.config.update(dict(
+#     DATABASE=os.path.join(app.root_path, 'chat.db'),
+#     DEBUG=False,
+#     SECRET_KEY='shhhh',
+#     USERNAME='admin',
+#     PASSWORD='default'
+# ))
+app.debug = True
+app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
+thread = None
 
-app.config.update(dict(
-    DATABASE=os.path.join(app.root_path, 'chat.db'),
-    DEBUG=True,
-    SECRET_KEY='shhhh',
-    USERNAME='admin',
-    PASSWORD='default'
-))
-
-@socketio.on('message', namespace='/message')
-def message_socket(message):
-    print message
+@socketio.on('connect')
+def connection(message):
+    emit('connected')
 
 @app.route('/')
 def index():

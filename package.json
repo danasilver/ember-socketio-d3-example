@@ -1,0 +1,21 @@
+{
+  "name": "ember-chat",
+  "version": "0.0.1",
+  "description": "An example ember + websockets app.",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://danasilver@bitbucket.org/danasilver/ember-chat.git"
+  },
+  "author": "Dana Silver",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.6.1",
+    "socket.io": "^1.0.6",
+    "sqlite3": "^2.2.3"
+  }
+}
