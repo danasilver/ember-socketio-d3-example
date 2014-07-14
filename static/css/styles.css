@@ -15,6 +15,7 @@ section {
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
   font-size: 20px;
+  overflow-y: auto;
 }
 
 input {
@@ -39,4 +40,23 @@ li {
 
 .sentBySelf {
   background-color: lightgrey;
+}
+
+svg {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.bar {
+  fill: steelblue;
+}
+
+.x.axis path {
+  display: none;
 }

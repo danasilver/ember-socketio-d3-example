@@ -5,3 +5,5 @@ window.Chat = Ember.Application.create({
     controllers: ['chat']
   })
 });
+
+Chat.ApplicationAdapter = DS.FixtureAdapter.extend();

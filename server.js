@@ -32,10 +32,15 @@ io.sockets.on('connection', function(socket) {
     db.serialize(function() {
       var stmt = db.prepare('INSERT INTO chat (message, sender) ' +
                               'VALUES (?, ?)');
-      stmt.run(data.message, data.sender);
-      stmt.finalize();
+      stmt.run(data.message, data.sender, function() {
+        socket.broadcast.emit('message', {
+          id: this.lastID,
+          sender: data.sender,
+          message: data.message
+        });
+      });
 
-    })
+    });
 
   });
 });

@@ -9,6 +9,7 @@
       <section id="chatapp">
         <header>
           <h1>chat</h1>
+          {{username}}
           {{input type="text" id="username" placeholder="Enter your name..."
             value=username}}
           <ul id="chatlog">
@@ -20,9 +21,21 @@
             placeholder="Type a message and press enter..." value=newMessage
             action="createMessage"}}
         </header>
+        {{bar-chart width=500 height=300 data=stats}}
       </section>
     </script>
+    <script type="text/x-handlebars" id="components/bar-chart">
+      <g {{bind-attr transform=transformG}}>
+        <g class="x axis" {{bind-attr transform=transformX}}></g>
+        <g class="y axis">
+          <text transform="rotate(-90)" y="6" dy=".71em"
+            style="text-anchor:end;">Frequency</text>
+        </g>
+        <g class="rects"><g>
+      </g>
+    </script>
     <script src="https://cdn.socket.io/socket.io-1.0.6.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
     <script src="static/libs/jquery-1.10.2.js"></script>
     <script src="static/libs/handlebars-1.1.2.js"></script>
     <script src="static/libs/ember-1.6.0.js"></script>
@@ -33,5 +46,6 @@
     <script src="static/js/models/message.js"></script>
     <script src="static/js/controllers/chat_controller.js"></script>
     <script src="static/js/controllers/message_controller.js"></script>
+    <script src="static/js/components/bar-chart_component.js"></script>
   </body>
 </html>

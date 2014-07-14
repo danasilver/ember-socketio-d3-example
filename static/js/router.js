@@ -4,7 +4,6 @@ Chat.Router.map(function() {
 
 Chat.ChatRoute = Ember.Route.extend({
   model: function() {
-    console.log(this);
-    return this.modelFor('message');
+    return this.store.find('message');
   }
 });

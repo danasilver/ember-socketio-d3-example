@@ -14,12 +14,24 @@ Chat.ChatController = Ember.ArrayController.extend({
 
       this.set('newMessage', '');
 
+      newMessage.save();
+
       this.socket.emit('new message', {
         message: message,
         sender: username
       });
     }
   },
+  stats: function() {
+    var messages = this.store.all('message'),
+        counts = {};
+    this.store.all('message').forEach(function(message) {
+      var sender = message.get('sender');
+      if (counts.hasOwnProperty(sender)) counts[sender]++;
+      else counts[sender] = 1;
+    });
+    return d3.entries(counts);
+  }.property('@each'),
   sockets: {
     connect: function() {
       console.log("Connected");
