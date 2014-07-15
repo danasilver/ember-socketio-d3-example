@@ -14,8 +14,6 @@ Chat.ChatController = Ember.ArrayController.extend({
 
       this.set('newMessage', '');
 
-      newMessage.save();
-
       this.socket.emit('new message', {
         message: message,
         sender: username

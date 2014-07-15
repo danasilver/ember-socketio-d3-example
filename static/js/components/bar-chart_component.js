@@ -25,8 +25,6 @@ Chat.BarChartComponent = Ember.Component.extend({
         data = this.get('data'),
         svg = d3.select('#' + this.get('elementId'));
 
-    console.log('width height'.w());
-
     var x = d3.scale.ordinal()
         .rangeRoundBands([0, width], 0.1)
         .domain(data.map(function(d) { return d.key; }));
@@ -61,6 +59,7 @@ Chat.BarChartComponent = Ember.Component.extend({
         .attr('width', x.rangeBand())
         .attr('height', function(d) { return height - y(d.value); })
   }.observes('data'),
+
   didInsertElement: function() {
     this.draw();
   }
