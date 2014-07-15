@@ -1,7 +1,7 @@
 {
   "name": "ember-chat",
   "version": "0.0.1",
-  "description": "An example ember + websockets app.",
+  "description": "Chat example using Ember.js, socket.io, D3 with Node/Express on the backend.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "https://github.com/danasilver/ember-socketio-d3-example.git"
   },
-  "author": "Dana Silver",
+  "author": "Dana Silver <dsilver@middlebury.edu>",
   "license": "MIT",
   "dependencies": {
     "express": "^4.6.1",
