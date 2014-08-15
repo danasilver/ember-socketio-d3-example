@@ -4,6 +4,10 @@ Chat.Router.map(function() {
 
 Chat.ChatRoute = Ember.Route.extend({
   model: function() {
-    return this.store.all('message');
+    return this.store.all('message')
+  },
+  setupController: function(controller, model) {
+    controller.set('content', model);
+    controller.set('modules', [{name: 'barChart'}])
   }
 });

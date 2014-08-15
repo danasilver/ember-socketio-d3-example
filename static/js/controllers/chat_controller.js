@@ -38,6 +38,7 @@ Chat.ChatController = Ember.ArrayController.extend({
       console.log("Disconnected");
     },
     message: function(data) {
+      console.log(this)
       var newMessage = this.store.push('message', {
         id: data.id,
         message: data.message,

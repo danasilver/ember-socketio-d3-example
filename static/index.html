@@ -9,7 +9,6 @@
       <section id="chatapp">
         <header>
           <h1>chat</h1>
-          {{username}}
           {{input type="text" id="username" placeholder="Enter your name..."
             value=username}}
           <ul id="chatlog">
@@ -21,9 +20,13 @@
             placeholder="Type a message and press enter..." value=newMessage
             action="createMessage"}}
         </header>
+        {{#each modules itemController="moduleList"}}
+          <button {{action "clickBarChart"}}>{{name}}</button>
+        {{/each}}
         {{bar-chart width=500 height=300 data=stats}}
       </section>
     </script>
+
     <script type="text/x-handlebars" id="components/bar-chart">
       <g {{bind-attr transform=transformG}}>
         <g class="x axis" {{bind-attr transform=transformX}}></g>
@@ -38,15 +41,22 @@
     <script src="static/bower_components/d3/d3.js"></script>
     <script src="static/bower_components/jquery/jquery.js"></script>
     <script src="static/bower_components/handlebars/handlebars.js"></script>
-    <script src="static/bower_components/ember/ember.js"></script>
+    <script src="http://builds.emberjs.com/release/ember.js"></script>
     <script src="static/bower_components/ember-data/ember-data.js"></script>
     <script src="static/bower_components/ember-sockets/dist/ember-sockets.js"></script>
 
     <script src="static/js/application.js"></script>
     <script src="static/js/router.js"></script>
+
+    <script src="static/js/models/module.js"></script>
     <script src="static/js/models/message.js"></script>
+
+    <script src="static/js/views/modules_container_view.js"></script>
+
     <script src="static/js/controllers/chat_controller.js"></script>
     <script src="static/js/controllers/message_controller.js"></script>
+    <script src="static/js/controllers/module_list_controller.js"></script>
+
     <script src="static/js/components/bar-chart_component.js"></script>
   </body>
 </html>
